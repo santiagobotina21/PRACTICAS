@@ -1,0 +1,46 @@
+<body>
+
+  
+    <div class="container mt-5">
+      <h3>DOCUMENTACIÓN LEGAL. (EMPRESA PRIVADA)</h3>
+  
+      <div class="alert-banner">
+        <div class="container">
+  
+          <p> Recuerde que debe subir todos los documentos. Una vez completa la información, esta se enviará al sistema
+              de la universidad para ser validada.</p>
+        </div>
+      </div>
+  
+      <form (submit)="subirPDFs()" enctype="multipart/form-data">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Documento</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Subir</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let documento of documentos">
+              <td>{{ documento.descripcion }}</td>
+              <td [ngStyle]="getEstadoStyle(estadoArchivos[documento.id - 1])">{{ estadoArchivos[documento.id - 1] }}</td>
+              <td>
+                <div class="mb-3">
+                  <label for="pdf{{ documento.id }}" class="form-label visually-hidden"></label>
+                  <div class="input-group">
+                    <input type="file" [name]="'pdf' + documento.id" class="form-control" id="pdf{{ documento.id }}"
+                      (change)="seleccionarArchivo($event, documento.id)" #inputPDF style="display: none;" />
+                    <label for="pdf{{ documento.id }}" class="input-group-text">
+                      <i class="fas fa-file-upload"></i> Subir Archivo
+                    </label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary float-end btn-enviar-pdfs">Enviar</button>
+      </form>
+    </div>
+  </body>

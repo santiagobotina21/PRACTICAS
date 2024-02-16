@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300;1,400&display=swap');
+
+.body {
+
+
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    font-family: 'Rubik', sans-serif;
+    padding-left: 20%;
+    padding-right: 5%;
+    padding-top: 5%;
+    padding-bottom: 0;
+    font-size: 14px;
+    width: 95%;
+
+}
+
+
+.banner {
+    background-color: #184464;
+    height: 75px;
+    text-align: center;
+
+}
+
+
+.banner button {
+    color: aliceblue;
+
+    background: transparent;
+    border: none;
+
+    padding: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+
+th {
+
+
+    color: aliceblue;
+    font-weight: lighter;
+    background-color: #184464;
+    font-size: 14px;
+}
+
+.center {
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+.center .btn {
+    border: none;
+    background-color: #184464;
+    border-radius: 4px;
+}
+
+.form-check-input {
+
+    width: 30px;
+    height: 30px;
+}
+
+.enviar {
+    margin-top: 20px;
+    background-color: #184464;
+    justify-content: end;
+    margin-bottom: 1%;
+}

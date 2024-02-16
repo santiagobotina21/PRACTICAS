@@ -1,0 +1,107 @@
+<body>
+
+    <div class="contenedor">
+  
+
+  
+      <div class="input-group mb-3 col-lg-6 col-md-12 col-sm-12 mb-3 barraBusqueda">
+  
+      
+  
+        <input type="text" class="form-control" [(ngModel)]="nombreEmpresa" (input)="aplicarFiltros()"
+          placeholder="Buscar por nombre de empresa">
+      </div>
+  
+  
+      <p class="title">Lista convenios</p>
+  
+      <div class="table-responsive col-lg-12 col-md-12 col-sm-12 ">
+        <table class="table table-striped col-lg-12 col-md-12 col-sm-12"> <!-- Aplicamos estilos de Bootstrap -->
+          <thead class="table-primary">
+            <tr class="centrar">
+              <th>#</th>
+              <th>Empresa</th>
+              <th>Datos Empresa</th>
+              <th>Ubicación</th>
+              <th>Contacto Directo</th>
+              <th class="th1">¿Activo?</th>
+              <th class="th1">Documentación</th>
+              <th class="th1">Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let empresa of empresasFiltradas; let i = index ">
+              <td>{{ i + 1 }}</td>
+              <td class="empresa">
+                <div class="empresa">
+                  <strong>{{ empresa.nombre_empresa }}</strong><br><br>
+                  <span><strong>NIT:</strong> {{ empresa.nit_empresa }}</span>
+                </div>
+              </td>
+              <td class="empresa-datos">
+                <div class="empresa-datos">
+                  <span><b>Teléfono:</b> {{ empresa.telefono_empresa }}</span><br>
+                  <span><b> Celular:</b> {{ empresa.celular_empresa }}</span><br>
+                  <span><b>Correo:</b> {{ empresa.correo_empresa }}</span><br>
+                  <span><b>Tipo:</b> {{ empresa.tipo_empresa }}</span>
+                </div>
+              </td>
+              <td class="empresa-ubicacion">
+                <div class="empresa-ubicacion">
+                  <span><b>Dirección:</b> {{ empresa.direccion_empresa }}</span><br>
+                  <span><b>País:</b> {{ empresa.pais_empresa }}</span><br>
+                  <span><b>Ciudad:</b> {{ empresa.municipio_empresa }}</span><br>
+                </div>
+              </td>
+              <td class="persona-acargo">
+                <div class="persona-acargo">
+                  <span><b>Nombre:</b> {{ empresa.nombre_encargado }}</span><br>
+                  <span><b>Celular:</b> {{ empresa.celular_encargado }}</span><br>
+                  <span><b>Correo:</b> {{ empresa.correo_encargado }}</span><br>
+                </div>
+              </td>
+              <td class="estado-convenio">
+                <div class="estado-convenio">
+                  <span>{{ empresa.estado_convenio }}</span><br>
+                </div>
+              </td>
+              <td class="estado-documentacion">
+                <div class="estado-documentacion">
+                  <span>{{ empresa.estado }}</span><br>
+                </div>
+              </td>
+              <td class="opciones">
+                <div class="opciones d-flex align-items-center">
+                  <button class="none-b" (click)="redirigirARevisionDocumentos(empresa.id)" title="Descargar el PDF del convenio."><svg
+                      xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                      class="bi bi-card-checklist" viewBox="0 0 16 16">
+                      <path
+                        d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                      <path
+                        d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
+                    </svg></button>
+
+                    <button class="none-b" (click)="enviarEmail(empresa.id)" title="Enviar el convenio firmado a jefatura."><svg
+                        xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        class="bi bi-envelope-at" viewBox="0 0 16 16">
+                        <path
+                          d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z" />
+                        <path
+                          d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z" />
+                      </svg></button>
+  
+                  
+                </div>
+              </td>
+  
+            </tr>
+          </tbody>
+        </table>
+  
+  
+    
+  
+  
+      </div>
+    </div>
+  </body>

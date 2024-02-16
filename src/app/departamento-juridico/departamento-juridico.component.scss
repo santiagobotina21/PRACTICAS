@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300;1,400&display=swap');
+
+.body {
+  margin: 0;
+  padding: 0;
+}
+
+.contenedor {
+  font-family: 'Rubik', sans-serif;
+  padding-left: 20%;
+  padding-right: 5%;
+  padding-top: 2%;
+  padding-bottom: 0;
+  font-size: 16px;
+
+}
+
+.filtros {
+  background-color: #f8f4f4;
+
+}
+
+.filtros label {
+
+  margin: 10px;
+  margin-right: 133px;
+}
+
+.filtros select {
+  margin: 10px;
+
+  border-radius: 0;
+  width: 300px;
+  display: inline-block;
+
+
+  vertical-align: middle;
+}
+
+.barraBusqueda {
+  margin-top: 50px;
+
+
+}
+
+.barraBusqueda button {
+  width: 150px;
+  height: 50px;
+  border-radius: 10px !important;
+  margin-right: 10vh;
+  font-size: 14px;
+
+
+}
+
+.title {
+
+  background-color: #380c3c;
+  color: #f8f4f4;
+  text-align: center;
+  font-size: 25px;
+  font-weight: lighter;
+  padding: 15px;
+}
+
+.table-responsive {
+  max-height: 60vh;
+  /* Altura máxima de la tabla antes de que aparezca una barra de desplazamiento vertical */
+  overflow-y: auto;
+}
+
+.table th {
+  background: #086464;
+  color: #f8f4f4;
+  text-align: justify;
+  font-weight: lighter;
+
+}
+
+
+.table {
+  border: 1px solid #ccc;
+  /* Agregamos un borde a la tabla */
+  border-collapse: collapse;
+  /* Colapsamos los bordes para que se vean más nítidos */
+}
+
+.table th,
+.table td {
+  border: 1px solid #ccc;
+  /* Agregamos bordes a las celdas de la tabla */
+}
+
+.estado-convenio,
+.estado-documentacion,
+.opciones {
+
+  text-align: center;
+  vertical-align: middle;
+  ;
+
+}
+
+
+.empresa,
+.emrpesa-datos,
+.empresa-ubicacion,
+.persona-acargo {
+
+  vertical-align: middle;
+
+}
+
+
+.centrar .th1 {
+  text-align: center;
+}
+
+.custom-switch {
+  font-size: 1.4rem;
+
+}
+
+.opciones button {
+  margin: 10px;
+
+}
+
+.opciones div {
+
+  margin-left: 5px;
+}
+
+.btn-eliminar{
+color: black;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.none-b{
+
+  background-color: transparent;
+  border: none;
+}

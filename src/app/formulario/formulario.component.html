@@ -1,0 +1,247 @@
+<body>
+
+
+  <app-navbar></app-navbar>
+
+  <div class="container">
+    
+  <div class="alert-banner">
+    <div class="container">
+
+      <p> <b>Información: </b>¡Bienvenidos al proceso de registro de convenios con las empresas de la Universidad CESMAG!
+        Una vez que hayas
+        proporcionado toda la información requerida, junto con los documentos legales necesarios, estos serán enviados
+        al
+        sistema para su procesamiento.</p>
+    </div>
+  </div>
+
+    <form #formulario="ngForm" class="form">
+      <!-- banner.component.html -->
+      <div class="alert-banner2">
+        <div class="container">
+
+        </div>
+      </div>
+      <div class="row">
+        <!-- Columna Izquierda -->
+        <h4>INFORMACIÓN DE LA EMPRESA.</h4>
+        <br>
+        <div class="col-md-6">
+          <!-- <h3>Columna Izquierda</h3> -->
+
+          <div class="form-group">
+            <label for="nombreEmpresa">NOMBRE DE LA EMPRESA</label>
+            <input type="text" class="form-control" id="nombreEmpresa" name="nombreEmpresa"
+              [(ngModel)]="formData.nombreEmpresa" required #nombreEmpresa="ngModel">
+          </div>
+
+          <div *ngIf="nombreEmpresa.invalid && (nombreEmpresa.dirty || nombreEmpresa.touched)"
+            class="alert alert-danger">
+            Este campo es obligatorio.
+          </div>
+
+          <div class="form-group">
+            <label for="telefonoFijo">TELÉFONO FIJO</label>
+            <input type="number" class="form-control" id="telefonoFijo" name="telefonoFijo"
+              [(ngModel)]="formData.telefonoFijo" required #telefonoFijo="ngModel">
+          </div>
+
+          <div *ngIf="telefonoFijo.invalid && (telefonoFijo.dirty || telefonoFijo.touched)" class="alert alert-danger">
+            Este campo es obligatorio.
+          </div>
+
+          <div class="form-group">
+            <label for="direccion">DIRECCIÓN</label>
+            <input type="text" class="form-control select-custom " id="direccion" name="direccion"
+              [(ngModel)]="formData.direccion" required #direccion="ngModel">
+          </div>
+
+          <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)" class="alert alert-danger">
+            Este campo es obligatorio.
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="pais">PAÍS</label>
+              <select class="form-control" id="pais" name="pais" [(ngModel)]="formData.pais"
+                (change)="cargarDepartamentosPorPais(
+                  
+                )" required #pais="ngModel">
+                <option value="">Selecciona un país</option>
+                <option *ngFor="let pais of paises" [value]="pais.id">{{ pais.nombre }}</option>
+                <!-- Agrega más opciones de país según sea necesario -->
+              </select>
+
+              <div *ngIf="pais.invalid && (pais.dirty || pais.touched)" class="alert alert-danger">
+                Este campo es obligatorio.
+              </div>
+
+            </div>
+            <div class="form-group col-md-6">
+              <label for="departamento">DEPARTAMENTO</label>
+              <select class="form-control" id="departamento" name="departamento" [(ngModel)]="formData.departamento"
+                (change)="cargarMunicipiosPorDepartamento()" required #departamento="ngModel">
+                <option value="">Selecciona un departamento</option>
+                <option *ngFor="let departamento of departamentos" [value]="departamento.id">{{ departamento.nombre }}
+                </option>
+
+                <!-- Agrega más opciones de departamento según sea necesario -->
+              </select>
+
+              <div *ngIf="departamento.invalid && (departamento.dirty || departamento.touched)"
+                class="alert alert-danger">
+                Este campo es obligatorio.
+              </div>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="nombreRepresentante">NOMBRE DEL REPRESENTANTE LEGAL </label>
+            <input type="text" class="form-control" id="nombreRepresentante" name="nombreRepresentante"
+              [(ngModel)]="formData.nombreRepresentante" required #nombreRepresentante="ngModel">
+          </div>
+
+          <div *ngIf="nombreRepresentante.invalid && (nombreRepresentante.dirty || nombreRepresentante.touched)"
+            class="alert alert-danger">
+            Este campo es obligatorio.
+          </div>
+
+          <!-- Agrega más campos en la columna izquierda según sea necesario -->
+
+        </div>
+
+
+        <!-- Columna Derecha -->
+        <div class="col-md-6">
+          <!-- <h3>Columna Derecha</h3> -->
+          <div class="form-group">
+            <label for="nit">NIT</label>
+            <input type="text" class="form-control" id="nit" name="nit" [(ngModel)]="formData.nit" required
+              #nit="ngModel">
+          </div>
+          <div *ngIf="nit.invalid && (nit.dirty || nit.touched)"
+            class="alert alert-danger">
+            Este campo es obligatorio.
+          </div>
+
+          <div class="form-group">
+            <label for="telefonoCelular">CELULAR</label>
+            <input type="number" class="form-control" id="telefonoCelular" name="telefonoCelular"
+              [(ngModel)]="formData.telefonoCelular" required #telefonoCelular="ngModel">
+          </div>
+
+          <div *ngIf="telefonoCelular.invalid && (telefonoCelular.dirty || telefonoCelular.touched)"
+            class="alert alert-danger">
+            Este campo es obligatorio.
+          </div>
+
+          <div class="form-group">
+            <label for="correoElectronico">CORREO ELECTRÓNICO EMPRESA</label>
+            <input type="email" class="form-control" id="correoElectronico" name="correoElectronico"
+              [(ngModel)]="formData.correoElectronico" required #correoElectronico="ngModel">
+          </div>
+
+          <div *ngIf="correoElectronico.invalid && (correoElectronico.dirty || correoElectronico.touched)"
+            class="alert alert-danger">
+            Este campo es obligatorio.
+          </div>
+          <div class="row">
+
+            <div class="form-group col-md-6">
+              <label for="municipio">MUNICIPIO</label>
+              <select class="custom-select form-control" id="municipio" name="municipio"
+                [(ngModel)]="formData.municipio" required #municipio="ngModel">
+                <option value="">Selecciona un municipio</option>
+                <option *ngFor="let municipio of municipios" [value]="municipio.id">{{ municipio.nombre }}</option>
+                <!-- Agrega más opciones de municipio según sea necesario -->
+              </select>
+
+              <div *ngIf="municipio.invalid && (municipio.dirty || municipio.touched)" class="alert alert-danger">
+                Este campo es obligatorio.
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="tipoEmpresa">TIPO DE EMPRESA</label>
+              <select class="form-control" id="tipoEmpresa" name="tipoEmpresa" [(ngModel)]="formData.tipoEmpresa"
+                required #tipoEmpresa="ngModel">
+                <option value="">Selecciona el tipo de empresa</option>
+                <option value="Pública">Pública</option>
+                <option value="Privada">Privada</option>
+                <!-- Agrega más opciones de tipo de empresa según sea necesario -->
+              </select>
+
+              <div *ngIf="tipoEmpresa.invalid && (tipoEmpresa.dirty || tipoEmpresa.touched)" class="alert alert-danger">
+                Este campo es obligatorio.
+              </div>
+            </div>
+
+          </div>
+          <div class="form-group">
+            <label for="cedulaRepresentante">CÉDULA DEL REPRESENTANTE LEGAL</label>
+            <input type="number" class="form-control" id="cedulaRepresentante" name="cedulaRepresentante"
+              [(ngModel)]="formData.cedulaRepresentante" required #cedulaRepresentante="ngModel">
+          </div>
+
+          <div *ngIf="cedulaRepresentante.invalid && (cedulaRepresentante.dirty || cedulaRepresentante.touched)"
+            class="alert alert-danger">
+            Este campo es obligatorio.
+          </div>
+
+          <!-- Agrega más campos en la columna derecha según sea necesario -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+
+
+          <h4>AREA ENCARGADA DEL PROCESO DE PRACTICA.</h4>
+
+
+          <div class="form-group">
+            <label for="nombreEncargado">NOMBRES Y APELLIDOS</label>
+            <input type="nombreEncargado" class="form-control" id="nombreEncargado" name="nombreEncargado"
+              [(ngModel)]="formData.nombreEncargado" required #nombreEncaragado="ngModel">
+          </div>
+          <div *ngIf="nombreEncaragado.invalid && (nombreEncaragado.dirty || nombreEncaragado.touched)"
+            class="alert alert-danger">
+            Este campo es obligatorio.
+          </div>
+
+          <div class="form-group">
+            <label for="correoElectronicoEncargado">CORREO ELECTRÓNICO</label>
+            <input type="email" class="form-control" id="correoElectronicoEncargado" name="correoElectronicoEncargado"
+              [(ngModel)]="formData.correoElectronicoEncargado" required #correoElectronicoEncargado="ngModel">
+          </div>
+
+          <div
+            *ngIf="correoElectronicoEncargado.invalid && (correoElectronicoEncargado.dirty || correoElectronicoEncargado.touched)"
+            class="alert alert-danger">
+            Este campo es obligatorio.
+          </div>
+
+          <div class="form-group">
+            <label for="celularEncargado">CELULAR</label>
+            <input type="number" class="form-control" id="celularEncargado" name="celularEncargado"
+              [(ngModel)]="formData.celularEncargado" required #celularEncargado="ngModel">
+          </div>
+
+          <div *ngIf="celularEncargado.invalid && (celularEncargado.dirty || celularEncargado.touched)"
+            class="alert alert-danger">
+            Este campo es obligatorio.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Botón de Envío -->
+
+
+      <br>
+      <button type="button" class="btn btn-primary float-end btn-siguiente"
+        (click)="enviarFormulario()">Siguiente</button>
+
+    </form>
+  </div>
+</body>

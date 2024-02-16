@@ -1,0 +1,98 @@
+<body>
+
+    <div class="contenedor">
+  
+
+  
+      <div class="input-group mb-3 col-lg-6 col-md-12 col-sm-12 mb-3 barraBusqueda">
+  
+  
+        <input type="text" class="form-control" [(ngModel)]="nombreEmpresa" (input)="aplicarFiltros()"
+          placeholder="Buscar por nombre de empresa">
+      </div>
+  
+  
+      <p class="title">Lista convenios</p>
+  
+      <div class="table-responsive col-lg-12 col-md-12 col-sm-12 ">
+        <table class="table table-striped col-lg-12 col-md-12 col-sm-12"> <!-- Aplicamos estilos de Bootstrap -->
+          <thead class="table-primary">
+            <tr class="centrar">
+              <th>#</th>
+              <th>Empresa</th>
+              <th>Datos Empresa</th>
+              <th>Ubicación</th>
+              <th>Contacto Directo</th>
+              <th class="th1">¿Activo?</th>
+              <th class="th1">Documentación</th>
+              <th class="th1">Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let empresa of empresasFiltradas; let i = index ">
+              <td>{{ i + 1 }}</td>
+              <td class="empresa">
+                <div class="empresa">
+                  <strong>{{ empresa.nombre_empresa }}</strong><br><br>
+                  <span><strong>NIT:</strong> {{ empresa.nit_empresa }}</span>
+                </div>
+              </td>
+              <td class="empresa-datos">
+                <div class="empresa-datos">
+                  <span><b>Teléfono:</b> {{ empresa.telefono_empresa }}</span><br>
+                  <span><b> Celular:</b> {{ empresa.celular_empresa }}</span><br>
+                  <span><b>Correo:</b> {{ empresa.correo_empresa }}</span><br>
+                  <span><b>Tipo:</b> {{ empresa.tipo_empresa }}</span>
+                </div>
+              </td>
+              <td class="empresa-ubicacion">
+                <div class="empresa-ubicacion">
+                  <span><b>Dirección:</b> {{ empresa.direccion_empresa }}</span><br>
+                  <span><b>País:</b> {{ empresa.pais_empresa }}</span><br>
+                  <span><b>Ciudad:</b> {{ empresa.municipio_empresa }}</span><br>
+                </div>
+              </td>
+              <td class="persona-acargo">
+                <div class="persona-acargo">
+                  <span><b>Nombre:</b> {{ empresa.nombre_encargado }}</span><br>
+                  <span><b>Celular:</b> {{ empresa.celular_encargado }}</span><br>
+                  <span><b>Correo:</b> {{ empresa.correo_encargado }}</span><br>
+                </div>
+              </td>
+              <td class="estado-convenio">
+                <div class="estado-convenio">
+                  <span>{{ empresa.estado_convenio }}</span><br>
+                </div>
+              </td>
+              <td class="estado-documentacion">
+                <div class="estado-documentacion">
+                  <span>{{ empresa.estado }}</span><br>
+                </div>
+              </td>
+              <td class="opciones">
+                <div class="opciones d-flex align-items-center">
+                  <button class="none-b" (click)="redirigirARevisionDocumentos(empresa.id)" title="Revisión de documentación de la empresa."><svg
+                      xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                      class="bi bi-card-checklist" viewBox="0 0 16 16">
+                      <path
+                        d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                      <path
+                        d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
+                    </svg></button>
+  
+                  
+                </div>
+              </td>
+  
+            </tr>
+          </tbody>
+        </table>
+  
+  
+        <button (click)="redirigirARectoria()">Rectoria</button>
+  
+  
+  
+      </div>
+    </div>
+  </body>

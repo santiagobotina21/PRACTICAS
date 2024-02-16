@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300;1,400&display=swap');
+
+body {
+
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400; // Puedes especificar el peso de la fuente aquí   
+
+}
+
+/* banner.component.scss */
+
+.alert-banner {
+    background-color: #e8ecec;
+    /* Color de fondo del banner */
+    color: #000000;
+    /* Color del texto del banner */
+    padding-top: 15px;
+    padding-bottom: 8px;
+    
+    /* Ancho del banner */
+    // height: 80px;
+    margin: 10px auto;
+    /* Centra horizontalmente el banner */
+    text-align: justify;
+
+}
+
+
+/* banner2.component.scss */
+
+.alert-banner2 {
+    background-color: #183454;
+    /* Color de fondo del banner */
+    color: #e8ecec;
+    ;
+    /* Color del texto del banner */
+    text-align: center;
+    height: 30px;
+    margin: 10px auto;
+    /* Centra horizontalmente el banner */
+}
+
+/* formulario */
+
+.form .form-group {
+    letter-spacing: 1.8px;
+}
+
+.form .form-group label {
+    font-size: 0.7rem;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.form .form-group input {
+
+    font-size: 0.8rem;
+
+
+}
+
+.form .form-group select {
+    font-size: 0.8rem;
+
+}
+
+.btn-siguiente {
+
+    background-color: #183454;
+    /* Cambia este color al que desees */
+    color: #ffffff;
+    /* Color del texto en el botón */
+}
+
+// baner de alerta campo obligatorio
+
+.alert-danger {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
+    height: 30px;
+
+}
+
+// quitar flecha aumento o disminuacio
+
+/* Estilo para ocultar la flecha de aumento y disminución en campos tipo "number" */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+
+  

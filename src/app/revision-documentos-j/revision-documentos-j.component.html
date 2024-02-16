@@ -1,0 +1,60 @@
+<body>
+
+    <div class="contenedor">
+        <button class="btn btn-primary enviar " (click)="regresar()"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+            </svg></button>
+        <div class="banner">
+            <button><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                    class="bi bi-person-vcard-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5ZM9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8Zm1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5Zm-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96c.026-.163.04-.33.04-.5ZM7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0Z" />
+                </svg><br>Documentos</button>
+
+
+        </div>
+        <br>
+
+        <h3>DOCUMENTACIÓN LEGAL DE LA EMPRESA</h3>
+        <br>
+        <div class="table-responsive col-lg-12 col-md-12 col-sm-12 ">
+            <table class="table table-striped col-lg-12 col-md-12 col-sm-12">
+                <thead>
+                    <tr>
+                        <th>Nombre del Documento</th>
+                        <th>Estado</th>
+                        <th>Documento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let documento of documentos">
+                        <td>{{ documento.nombre_documento }}
+
+                        </td>
+                        <td class="center">
+
+                            <input class="form-check-input center" type="checkbox" [(ngModel)]="documento.checkeado">
+
+                        </td>
+                        <td class="center">
+
+                            <!-- Agrega aquí un botón o un enlace para ver el documento -->
+                            <!-- Ejemplo de un enlace -->
+                            <a class="btn btn-primary text-center" (click)="loadPDF(documento.id)">Ver</a>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ... Tu código HTML existente ... -->
+
+            <!-- Agrega un botón "Enviar a jurídica" -->
+            <button class="btn btn-primary enviar float-end" (click)="enviarARectoria()">Enviar a Rectoria</button>
+            <button class="btn btn-primary enviar float-end" (click)="enviarEmail()">Denegar</button>
+
+        </div>
+    </div>
+</body>
